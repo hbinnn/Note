@@ -34,11 +34,11 @@
 
 采用值捕获的前提是变量可以拷贝；另外与参数不同，被捕获的变量的值是在 *lambda* 创建时拷贝，而不是调用时拷贝；
 
-![image-20210322234633143](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210322234633143.png)
+![image-20210629232812035](lambda表达式.assets/image-20210629232812035.png)
 
 ## 引用捕获
 
-![image-20210322234654348](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210322234654348.png)
+![image-20210629232818155](lambda表达式.assets/image-20210629232818155.png)
 
 *v1* 之前的 *&* 指出 *v1* 应该以引用方式捕获；
 
@@ -58,21 +58,21 @@
 
 如果要改变一个被捕获的变量的值，可以在参数列表首加上关键字 *mutable* ，此时可以省略参数列表
 
-![image-20210322235713184](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210322235713184.png)
+![image-20210629232827475](lambda表达式.assets/image-20210629232827475.png)
 
 一个引用捕获的变量是否可以修改取决于此引用指向的是一个 *const* 类型还是非 *const* 类型
 
-![image-20210322235815491](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210322235815491.png)
+![image-20210629232836020](lambda表达式.assets/image-20210629232836020.png)
 
 ## 指定 *lambda* 返回类型
 
 默认情况下。一个 *lambda* 体包含 *return* 之外的任何语句，则编译器假定此 *lambda* 返回 *void* ，被推断返回 *void* 的 *lambda* 不能返回值
 
-![image-20210323000111059](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323000111059.png)
+![image-20210629232842949](lambda表达式.assets/image-20210629232842949.png)
 
 此时需要为 *lambda* 定义返回类型，需要使用尾置返回类型
 
-![image-20210323000151219](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323000151219.png)
+![image-20210629232850495](lambda表达式.assets/image-20210629232850495.png)
 
 ## 参数绑定
 
@@ -102,11 +102,11 @@
 
 *arg_list* 中的参数可能包含形如 *_n* 的名字，其中 *n* 是一个整数， 这些参数是占位符，占据了传递给 *newCallable* 的参数的位置； *_1* 为 *newCallable* 的第一个参数，*_2* 为 *newCallable* 的第二个参数，以此类推
 
-![image-20210323001948819](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323001948819.png)
+![image-20210629232902196](lambda表达式.assets/image-20210629232902196.png)
 
-![image-20210323002006223](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323002006223.png)
+![image-20210629232911798](lambda表达式.assets/image-20210629232911798.png)
 
-![image-20210323002021363](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323002021363.png)
+![image-20210629232924604](lambda表达式.assets/image-20210629232924604.png)
 
 ## 使用 *placeholders* 名字
 
@@ -116,7 +116,7 @@
 
 如果我们希望传递给 *bind* 一个对象又不拷贝它或无法拷贝，可以使用标准库的 *ref* 函数
 
-![image-20210323002407246](C:\Users\huangshibin\Desktop\Note\C++\lambda表达式.assets\image-20210323002407246.png)
+![image-20210629232932928](lambda表达式.assets/image-20210629232932928.png)
 
 *ref* 返回一个对象，包含给定的引用，此对象是可以拷贝的，另外还有一个 *cref* 函数生成一个保存 *const* 引用的类；
 
